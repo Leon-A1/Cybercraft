@@ -18,6 +18,8 @@ This project started with the idea of building a 3D world that is accessible fro
 
 saves cube coordinates/location in local storage.📥
 
+[Check out Cybercraft here](https://cybercraft.netlify.app/)
+
 ![gameplay](https://github.com/Leon-A1/Cybercraft/blob/main/src/images/gameplay.png)
 ![gameplay2](https://github.com/Leon-A1/Cybercraft/blob/main/src/images/gameplay2.png)
 ![gameplay3](https://github.com/Leon-A1/Cybercraft/blob/main/src/images/gameplay3.png)
