@@ -8,6 +8,15 @@ import { Player } from "./components/Player";
 import { Hud } from "./components/Hud";
 
 function App() {
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    if (window.innerWidth < 450) {
+      setIsMobile(true);
+    }
+  }, []);
+  if (isMobile) {
+    return <p>Cybercraft is only available for desktop.</p>;
+  }
   return (
     <Canvas shadowMap sRGB>
       <Stars />
