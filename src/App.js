@@ -17,7 +17,7 @@ function App() {
   if (isMobile) {
     return (
       <div style={{ padding: "2rem", color: "white" }}>
-        <p>Cybercraft is only available for desktop.</p>
+        <p>Cybercraft is only available on desktop</p>
       </div>
     );
   }
