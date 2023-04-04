@@ -15,7 +15,11 @@ function App() {
     }
   }, []);
   if (isMobile) {
-    return <p>Cybercraft is only available for desktop.</p>;
+    return (
+      <div style={{ padding: "2rem", color: "white" }}>
+        <p>Cybercraft is only available for desktop.</p>
+      </div>
+    );
   }
   return (
     <Canvas shadowMap sRGB>
