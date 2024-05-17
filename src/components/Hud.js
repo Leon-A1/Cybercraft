@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useFrame, useThree } from "react-three-fiber";
-import { useStore } from "../hooks/useStore";
-import * as textures from "../textures";
+import React, { useState, useEffect } from 'react';
+import { useFrame, useThree } from 'react-three-fiber';
+import { useStore } from '../hooks/useStore';
+import * as textures from '../textures';
 
 const Material = ({ args, color, texture, isActive, ...props }) => {
   return (
     <mesh {...props}>
       <boxBufferGeometry attach="geometry" args={args} />
-      {[...Array(6)].map((_, index) => {
-        return (
-          <meshStandardMaterial
-            attachArray="material"
-            map={texture}
-            key={index}
-            transparent={true}
-            opacity={isActive ? 1 : 0.3}
-          />
-        );
-      })}
+      {[...Array(6)].map((_, index) => (
+        <meshStandardMaterial
+          attachArray="material"
+          map={texture}
+          key={index}
+          transparent={true}
+          opacity={isActive ? 1 : 0.3}
+        />
+      ))}
     </mesh>
   );
 };
@@ -26,24 +24,17 @@ const MaterialContainer = ({ args, color, activeTexture, ...props }) => {
   const activeTextureIndex = Object.keys(textures).indexOf(activeTexture);
   return (
     <mesh {...props}>
-      {Object.keys(textures).map((key, index) => {
-        return (
-          <Material
-            key={key}
-            isActive={activeTextureIndex === index}
-            texture={textures[key]}
-            args={[0.2, 0.2, 0.05]}
-            position={[-0.5 + index / 3, 0, 0.01]}
-          />
-        );
-      })}
+      {Object.keys(textures).map((key, index) => (
+        <Material
+          key={key}
+          isActive={activeTextureIndex === index}
+          texture={textures[key]}
+          args={[0.2, 0.2, 0.05]}
+          position={[-0.5 + index / 3, 0, 0.01]}
+        />
+      ))}
       <boxBufferGeometry attach="geometry" args={args} />
-
-      <meshStandardMaterial
-        attach="material"
-        color={color}
-        transparent={true}
-      />
+      <meshStandardMaterial attach="material" color={color} transparent={true} />
     </mesh>
   );
 };
@@ -76,6 +67,7 @@ export const Hud = ({ position }) => {
       clearTimeout(hudVisibilityTimeout);
     };
   }, [setHudVisible, activeTexture]);
+
   return (
     hudVisible && (
       <group position={hudState.position} rotation={hudState.rotation}>
